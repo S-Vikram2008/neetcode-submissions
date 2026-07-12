@@ -1,0 +1,70 @@
+Explanation for Palindrome program :
+
+Definition :
+A string is said to be palindrome only if the word read from left to right is same as the word read from right to left . 
+
+Intuition:
+
+A palindrome reads the same from both left to right and right to left.
+Instead of creating a reversed copy of the string, we can compare characters from both ends simultaneously using two pointers algorithm.
+
+The left pointer starts at the beginning of the string.
+The right pointer starts at the end of the string.
+
+Since spaces and special characters do not affect whether a string is a palindrome, we skip them.
+We also convert uppercase letters to lowercase so that 'A' and 'a' are treated as equal.
+
+If at any point the two valid characters do not match, the string is not a palindrome.If the pointers cross without finding a mismatch, the string is a palindrome.
+
+Code :
+First we initialize two pointers left and right . left pointer has value 0 (starting index ) and right pointer has value len(s)-1 (ending index ). We iterate through each characters. 
+Whether if s[left] is non alphanumeric character like spaces , commas , full stop or a question marks etc we skip it by changing the pointer one step ahead .
+Similarly if s[right] is non alphanumeric character we skip it by saying right-=1
+Our main goal is to make both pointers left and right become equal at some point in future which is when the while loop ends
+
+For example :
+s='racecar'
+
+r a c e c a r
+↑           ↑
+L           R
+Here first left=0 and right=len(s)-1 and  s[left]='r' and s[right]='r' . s[left]==s[right]  ------>  TRUE✅   we do left+=1 and right-=1
+
+r a c e c a r
+  ↑       ↑
+  L       R
+
+Next left=1 ad right=len(s)-2 and s[left]='a' and s[right]='a' . s[left==s[right]  -------------->   TRUE✅    we do left+=1 and right-=1
+
+r a c e c a r
+    ↑   ↑
+    L   R
+
+Next left=2 ad right=len(s)-3 and s[left]='c' and s[right]='c' . s[left==s[right]  -------------->   TRUE✅    we do left+=1 and right-=1
+
+r a c e c a r
+      ↑
+     L,R
+
+Now left=3 and right=len(s)-4 and both s[left] and s[right] points to same character 'e' . This is the condition when our while loop ends .
+Since we got TRUE in all the time when we change the pointers . We can find that the string is a palindrome.
+
+If during this process if there exists any mismatch , we return False and come out of the while loop.
+
+Another Example (mismatch happens later)
+
+s = "abccbx"
+
+Initially, left = 0 and right = 5
+
+a b c c b x
+↑         ↑
+L         R
+
+s[left] = 'a'
+s[right] = 'x'
+
+a != x so we return: False and we dont need to iterate left and right pointers further .
+
+
+
