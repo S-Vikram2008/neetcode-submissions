@@ -13,9 +13,10 @@ Approach:
     ➤If the sum is 0, store the triplet and move both pointers while skipping duplicate values.
     ➤If the sum is less than 0, move the left pointer to increase the sum.
     ➤If the sum is greater than 0, move the right pointer to decrease the sum.
-5. Skip duplicate fixed elements to avoid repeated triplets.
+5. Skip duplicate fixed elements to avoid repeated triplets. Before inserting a new triplet into the output list we check whether that triplet already exists in the 
+output list . If it exists we skip that triplet otherwise we insert it into out output list.
 
-Time Complexity: O(n²)
-Space Complexity: O(1) (excluding the space used for storing the output)
+Time Complexity of this approach is : O(n²)
+Space Complexity: O(1) (excluding the space used for storing the output) 
 
 This approach is efficient because sorting allows the two-pointer technique to find valid triplets without checking every possible combination.
