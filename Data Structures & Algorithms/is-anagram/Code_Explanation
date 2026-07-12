@@ -1,0 +1,43 @@
+Explanation of Valid Anagram (Python)
+
+For two strings to be anagrams of each other, they must satisfy two conditions:
+🎯 Both strings must have the same length.
+🎯 The frequency of each character must be the same in both strings.
+
+Example:
+
+Let 's' and 't' be two strings which are anagram of each other 
+s = "cat"
+t = "tac"
+
+
+Step 1: Compare the Lengths
+
+First, compare the lengths of both strings using len().
+If the lengths are different, return False immediately because strings of different lengths cannot be anagrams of each other.
+Otherwise, proceed to the next step.
+
+
+Step 2: Count the Frequency of Each Character
+Create two dictionaries (s_map and t_map) to store the frequency of each character.
+
+s_map = {}
+t_map={}
+
+Iterate through each character in s.
+If the character already exists in s_map, increment its count by 1.
+Otherwise, add the character to the dictionary with a count of 1.
+
+Repeat the same process for t using t_map.
+s_map = {'c': 1, 'a': 1, 't': 1}
+t_map = {'t': 1, 'a': 1, 'c': 1}
+
+Finally, compare the two dictionaries.
+We know that two dictionaries (Hashmaps) becomes equal only when both keys and values of all elements in dictionaries become equal . 
+
+If s_map == t_map, return True.
+Otherwise, return False.
+
+Note :
+Only when both the strings have same length and also the character occurences are the same we conclude that two strings are anagrams of each other .
+If either of the condition fails then they cannot be anagrams of each other.
