@@ -1,0 +1,83 @@
+Two Sum
+■ Problem Statement
+
+Given an integer array nums and an integer target, return the indices of the two numbers whose sum is equal to target.
+You may assume that each input has exactly one solution. The same element cannot be used twice.
+
+■ Example
+
+Input:
+nums = [2, 7, 11, 15]
+target = 9
+
+Output:
+
+[0, 1]
+
+■ Explanation:
+nums[0] + nums[1] = 2 + 7 = 9
+
+■ Approach : 
+⦿ Create an empty hash map.
+⦿ Traverse the array one element at a time.
+⦿ For every element, calculate the complement.
+⦿ complement = target - current element
+⦿ Check if the complement already exists in the hash map.
+⦿ If it exists, return the index of the complement together with the current index.
+⦿ If it does not exist, store the current element along with its index in the hash map.
+⦿ Continue until the required pair is found.
+
+■ Dry Run : 
+Input
+nums = [2, 7, 11, 15]
+target = 9
+
+Step 1
+Current Element = 2
+Complement = 9 - 2 = 7
+
+Hash Map = {}
+
+7 is not present.
+
+Store:
+2 → 0
+
+Hash Map:
+{2 : 0}
+
+Step 2
+Current Element = 7
+Complement = 9 - 7 = 2
+
+2 is already present in the hash map.
+
+Pair found:
+
+Indices = [0, 1]
+
+Stop searching.
+
+Final Output
+[0, 1]
+
+■ Why Use a Hash Map?
+Searching for the complement in a hash map takes constant time. [O(1) time complexity] 
+Every element is visited only once.
+This makes the solution much faster than checking every possible pair.
+
+■ Time Complexity
+Traversing the array: O(n)
+Hash map lookup: O(1) on average
+
+■ Overall Time Complexity: O(n)
+
+■ Space Complexity
+O(n) for storing the elements in the hash map.
+
+■ Key Points
+Traverse the array only once.
+Calculate the complement for every element.
+Use a hash map for fast lookup.
+Return the indices as soon as the complement is found.
+This approach is much faster than the brute-force method, which takes O(n²) time.
