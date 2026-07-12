@@ -1,0 +1,21 @@
+3Sum - Explanation
+
+The goal of the 3Sum problem is to find all unique triplets in an array whose sum is equal to 0.
+
+Approach:
+
+1. Sort the array.
+2. Traverse the array by fixing one element at a time.
+3. For each fixed element, use two pointers:
+   ➤ One pointer starts from the next element.
+   ➤The other pointer starts from the end of the array.
+4. Calculate the sum of the three elements:
+    ➤If the sum is 0, store the triplet and move both pointers while skipping duplicate values.
+    ➤If the sum is less than 0, move the left pointer to increase the sum.
+    ➤If the sum is greater than 0, move the right pointer to decrease the sum.
+5. Skip duplicate fixed elements to avoid repeated triplets.
+
+Time Complexity: O(n²)
+Space Complexity: O(1) (excluding the space used for storing the output)
+
+This approach is efficient because sorting allows the two-pointer technique to find valid triplets without checking every possible combination.
