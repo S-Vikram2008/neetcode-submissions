@@ -1,22 +1,92 @@
-3Sum - Explanation
+■ Two Sum II (Input Array Is Sorted)
+■ Problem Statement:
 
-The goal of the 3Sum problem is to find all unique triplets in an array whose sum is equal to 0.
+Given a sorted integer array numbers in non-decreasing order and an integer target, return the 1-based indices of the two numbers whose sum is equal to target.
+You may assume that each input has exactly one solution. The same element cannot be used twice.
 
-Approach:
+■ Example
 
-1. Sort the array.
-2. Traverse the array by fixing one element at a time.
-3. For each fixed element, use two pointers:
-   ➤ One pointer starts from the next element.
-   ➤The other pointer starts from the end of the array.
-4. Calculate the sum of the three elements:
-    ➤If the sum is 0, store the triplet and move both pointers while skipping duplicate values.
-    ➤If the sum is less than 0, move the left pointer to increase the sum.
-    ➤If the sum is greater than 0, move the right pointer to decrease the sum.
-5. Skip duplicate fixed elements to avoid repeated triplets. Before inserting a new triplet into the output list we check whether that triplet already exists in the 
-output list . If it exists we skip that triplet otherwise we insert it into out output list.
+Input:
+numbers = [2, 7, 11, 15]
+target = 9
 
-Time Complexity of this approach is : O(n²)
-Space Complexity: O(1) (excluding the space used for storing the output) 
+Output:
+[1, 2]
 
-This approach is efficient because sorting allows the two-pointer technique to find valid triplets without checking every possible combination.
+■ Explanation:
+numbers[1] + numbers[2] = 2 + 7 = 9
+
+■ Approach
+⦿  Since the array is already sorted, use the Two Pointer technique.
+⦿  Place one pointer at the beginning of the array.
+⦿  Place the other pointer at the end of the array.
+⦿  Calculate the sum of the two elements.
+⦿  If the sum is equal to the target, return the indices.
+⦿  If the sum is smaller than the target, move the left pointer one step to the right.
+⦿  If the sum is greater than the target, move the right pointer one step to the left.
+⦿  Continue until the required pair is found.
+
+■ Dry Run
+
+Input
+numbers = [2, 7, 11, 15]
+target = 9
+
+Step 1
+Left = 2
+Right = 15
+
+Sum = 2 + 15 = 17
+
+17 is greater than 9.
+
+Move the right pointer.
+
+Step 2
+Left = 2
+Right = 11
+
+Sum = 2 + 11 = 13
+
+13 is greater than 9.
+
+Move the right pointer.
+
+Step 3
+Left = 2
+Right = 7
+
+Sum = 2 + 7 = 9
+
+Pair found.
+
+Indices = [1, 2]
+
+Stop searching.
+
+■ Final Output
+[1, 2]
+
+■ Why Use Two Pointers?
+The array is already sorted.
+If the sum is too small, moving the left pointer increases the sum.
+If the sum is too large, moving the right pointer decreases the sum.
+Every element is visited at most once, making the solution very efficient.
+
+■ Time Complexity
+Traversing the array: O(n)
+
+■ Overall Time Complexity: O(n)
+
+■ Space Complexity
+O(1)
+
+■ Key Points
+⦿ Use the Two Pointer technique because the array is sorted.
+⦿ Start with one pointer at the beginning.
+⦿ Start the other pointer at the end.
+⦿ Move the left pointer when the sum is smaller than the target.
+⦿ Move the right pointer when the sum is greater than the target.
+⦿ Return the 1-based indices when the target sum is found.
+
+This approach is faster than checking every possible pair, which takes O(n²) time.
