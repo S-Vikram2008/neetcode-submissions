@@ -1,0 +1,21 @@
+class Solution:
+    def kthLargestNumber(self, nums: List[str], k: int) -> str:
+
+        # Converting strings in nums to int : 
+        nums=[int(i) for i in nums]
+
+        
+        # Importing heapq module 
+        import heapq 
+
+        nums=[-x for x in nums]
+
+        # Converting list into a array
+        heapq.heapify(nums)
+
+        # Popping out smallest integer which is  largest integer in terms of absolute value from nums for k times 
+        for i in range(k):
+            outcome=-heapq.heappop(nums)
+        
+        # Returning the output as of string data type as given in question
+        return str(outcome) 
